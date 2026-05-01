@@ -1,0 +1,13 @@
+server:
+  port: 8083
+  shutdown: graceful
+
+spring:
+  application:
+    name: voting-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

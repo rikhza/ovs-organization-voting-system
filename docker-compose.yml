@@ -1,0 +1,63 @@
+services:
+  api-gateway:
+    build:
+      context: .
+      args:
+        MODULE: apps/api-gateway
+    environment:
+      OVS_APP_NAME: "OVS"
+      OVS_ORGANIZATION_NAME: "Organization Voting System"
+      OVS_ACCENT_COLOR: "#0f766e"
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "8080:8080"
+    mem_limit: 384m
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/actuator/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+
+  identity-service:
+    build:
+      context: .
+      args:
+        MODULE: services/identity-service
+    environment:
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "8081:8081"
+    mem_limit: 384m
+
+  election-service:
+    build:
+      context: .
+      args:
+        MODULE: services/election-service
+    environment:
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "8082:8082"
+    mem_limit: 384m
+
+  voting-service:
+    build:
+      context: .
+      args:
+        MODULE: services/voting-service
+    environment:
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "8083:8083"
+    mem_limit: 384m
+
+  result-service:
+    build:
+      context: .
+      args:
+        MODULE: services/result-service
+    environment:
+      JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
+    ports:
+      - "8084:8084"
+    mem_limit: 384m

@@ -1,0 +1,13 @@
+server:
+  port: 8084
+  shutdown: graceful
+
+spring:
+  application:
+    name: result-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

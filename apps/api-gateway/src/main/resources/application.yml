@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  shutdown: graceful
+  max-http-request-header-size: 64KB
+
+spring:
+  application:
+    name: api-gateway
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+uvs:
+  brand:
+    app-name: ${OVS_APP_NAME:OVS}
+    organization-name: ${OVS_ORGANIZATION_NAME:Your Organization}
+    accent-color: ${OVS_ACCENT_COLOR:#0f766e}

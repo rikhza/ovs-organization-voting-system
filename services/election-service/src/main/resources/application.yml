@@ -1,0 +1,13 @@
+server:
+  port: 8082
+  shutdown: graceful
+
+spring:
+  application:
+    name: election-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

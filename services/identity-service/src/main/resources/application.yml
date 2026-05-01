@@ -1,0 +1,13 @@
+server:
+  port: 8081
+  shutdown: graceful
+
+spring:
+  application:
+    name: identity-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

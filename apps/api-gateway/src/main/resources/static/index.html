@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OVS</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="shell">
+    <header class="topbar" aria-label="Main navigation">
+        <div class="brand">
+            <strong id="brand-name">OVS</strong>
+            <span id="org-name">Open-source Java Spring Boot platform</span>
+        </div>
+        <a href="/actuator/health" class="outline">System Health</a>
+    </header>
+
+    <section class="hero" aria-label="Product overview">
+        <h1 id="headline">Organization Voting System</h1>
+        <p class="lede">Open-source Java Spring Boot platform for identity, voter eligibility, election setup, one-vote enforcement, and result publishing.</p>
+        <div class="meta" id="overview"></div>
+    </section>
+
+    <section class="grid" aria-label="Demo operations">
+        <article class="panel">
+            <h2>Demo Login</h2>
+            <p>`admin@ovs.demo / admin123` or `voter@ovs.demo / voter123`</p>
+            <form id="login-form">
+                <input id="email" type="email" placeholder="Email" required>
+                <input id="password" type="password" placeholder="Password" required>
+                <button type="submit" class="primary">Sign In</button>
+            </form>
+            <pre id="login-output"></pre>
+        </article>
+
+        <article class="panel">
+            <h2>Election & Vote</h2>
+            <div id="candidates"></div>
+            <form id="vote-form">
+                <input id="voter-email" type="email" placeholder="Eligible voter email" required>
+                <select id="candidate-id" required></select>
+                <button type="submit" class="primary">Cast Vote</button>
+            </form>
+            <button id="publish-btn" class="outline" type="button">Publish Results</button>
+            <pre id="vote-output"></pre>
+        </article>
+
+        <article class="panel">
+            <h2>Admin Voter Management</h2>
+            <form id="voter-form">
+                <input id="voter-name" type="text" placeholder="Member name" required>
+                <input id="voter-email-new" type="email" placeholder="Member email" required>
+                <label class="check">
+                    <input id="voter-eligible" type="checkbox" checked>
+                    <span>Eligible to vote</span>
+                </label>
+                <button type="submit" class="primary">Add Voter</button>
+            </form>
+            <div id="voter-list"></div>
+        </article>
+    </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
